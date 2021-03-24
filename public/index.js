@@ -20,7 +20,7 @@ function getUserLang() {
 getUserLang()
 
 async function getUserHello(userLang) {
-  const ipURL = `http://ip-api.com/json/?lang=${userLang}`
+  const ipURL = `//ip-api.com/json/?lang=${userLang}`
   const ipResponse = await fetch(ipURL)
   const ipResult = await ipResponse.json()
 

@@ -13,15 +13,20 @@
 body {
   background-color: #EFEFEE;
 
-  min-height: 70vh;
+  min-height: 75vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  overflow: none;
+
+  transition: all 0.3s;
+
 }
 
 #container {
+  max-width: 800px;
   width: 90%;
   height: 400px;
 
@@ -34,30 +39,31 @@ body {
 
 }
 
+div.closed {
+  display: none;
+}
+
 .loginContainer {
-  width: 80%;
+  width: 90%;
   height: 100%;
   
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   
 }
 
-.loginContainer.closed {
-  display: none;
-
-}
-
 .inputContainer {
-  width: 80%;
+  width: 100%;
   height: auto;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  margin-bottom: 20px;
 
 }
 
@@ -78,16 +84,22 @@ body {
 
 }
 
-.inputContainer input:focus {
+.inputContainer input:focus,
+.inputContainer input.invalid:focus {
   border: 1px solid rgb(88, 88, 88);
+
+}
+
+.inputContainer input.invalid {
+  border: 1px solid red;
 
 }
 
 .btnLogin {
   background-color: purple;
 
-  width: 80%;
-  height: 50px;
+  width: 100%;
+  height: 55px;
 
   color: white;
   font-size: 0.35em;
@@ -110,19 +122,125 @@ body {
 }
 
 .loggedContainer {
+  width: 90%;
+  height: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.logText {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+}
+
+.loggedContainer h4 {
+  color: #010100;
+  font-size: 3.1vmin;
+  font-weight: 400;
+
+  margin: 0 5px;
+
+}
+
+h4.helloText,
+h4.name {
+  font-size: 3.5vmin;
+  font-weight: 500;
+  color: rgb(100, 3, 100);
+
+}
+
+.btnLogout {
+  background-color: rgb(209, 10, 10);
+
+  width: 90%;
+  height: 45px;
+
+  color: #EFEFEE;
+  font-size: 0.3em;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+
+  border: none;
+  border-radius: 12px;
+
+  outline: none;
+
+  cursor: pointer;
+
+  transition: background 0.3s;
+
+}
+
+.btnLogout:hover {
+  background-color: rgb(170, 8, 8);
+
+}
+
+.logoutContainer {
   display: flex;
   align-items: center;
   justify-content: center;
 
 }
 
-.loggedContainer.closed {
-  display: none;
+.logoutContainer h4 {
+  font-size: 5vmin;
+  margin: 0 5px;
+
 }
 
-.loggedContainer h4 {
-  font-size: 3.5vmin;
+@media (min-width: 600px) {
+  body {
+    min-height: 95vh;
 
-  margin: 0 5px;
+  }
+
+  #container {
+    width: 70%;
+  }
+
+  .loginContainer {
+    justify-content: space-evenly;
+
+  }
+
+  .loginContainer input {
+    height: 55px;
+
+    font-size: 0.4em;
+    letter-spacing: 0.05em;
+    
+    padding: 10px 15px;
+
+  }
+
+  .loggedContainer {
+    height: 200px;
+
+    justify-content: space-evenly;
+
+  }
+
+  .loggedContainer h4 {
+    font-size: 2.7vmin;
+
+  }
+
+  .loggedContainer .logText {
+    margin-bottom: 20px;
+
+  }
 
 }
